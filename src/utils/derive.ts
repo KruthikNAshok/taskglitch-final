@@ -45,7 +45,7 @@ export function sortTasks(tasks: ReadonlyArray<DerivedTask>): DerivedTask[] {
 export function computeMetrics(tasks: ReadonlyArray<Task>): Metrics {
   const totalRevenue = computeTotalRevenue(tasks);
   const totalTime = computeTotalTimeTaken(tasks);
-  const timeEfficiency = computeTimeEfficiency(tasks);
+  const timeEfficiencyPct = computeTimeEfficiency(tasks);
   const revenuePerHour = computeRevenuePerHour(tasks);
   const avgROI = computeAverageROI(tasks);
   const grade = computePerformanceGrade(avgROI);
@@ -53,7 +53,7 @@ export function computeMetrics(tasks: ReadonlyArray<Task>): Metrics {
   return {
     totalRevenue,
     totalTime, // ✅ 'totalTime' now properly typed in Metrics
-    timeEfficiency,
+    timeEfficiencyPct,
     revenuePerHour,
     avgROI,
     performanceGrade: grade,

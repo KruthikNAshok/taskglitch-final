@@ -6,7 +6,7 @@
     "module": "ESNext",
     "skipLibCheck": true,
     "jsx": "react-jsx",
-    "moduleResolution": "node",
+    "moduleResolution": "node16",
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
