@@ -3,18 +3,17 @@
     "target": "ES2020",
     "useDefineForClassFields": true,
     "lib": ["ES2020", "DOM", "DOM.Iterable"],
-    "module": "Node16",
+    "module": "ESNext",
     "skipLibCheck": true,
     "jsx": "react-jsx",
-    "moduleResolution": "Node16",
+    "moduleResolution": "bundler",
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "strict": true,
-    "baseUrl": "./",
-    "types": ["node"],
+    "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"]
     }
