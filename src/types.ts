@@ -21,6 +21,7 @@ export interface DerivedTask extends Task {
 export interface Metrics {
   totalRevenue: number;
   totalTimeTaken: number;
+  totalTime?: number; //--------------------
   timeEfficiencyPct: number; // 0..100
   revenuePerHour: number; // may be NaN/Infinity -> handle in UI
   averageROI: number; // average over valid ROI values

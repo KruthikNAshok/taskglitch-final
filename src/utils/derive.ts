@@ -10,7 +10,9 @@ import {
   computePerformanceGrade,
 } from './logic';
 
-// ✅ Adds derived ROI and priorityWeight to each task
+/**
+ * ✅ Adds derived ROI and priorityWeight to each task
+ */
 export function deriveTasks(tasks: ReadonlyArray<Task>): DerivedTask[] {
   return tasks.map(task => ({
     ...task,
@@ -19,7 +21,9 @@ export function deriveTasks(tasks: ReadonlyArray<Task>): DerivedTask[] {
   }));
 }
 
-// ✅ Stable sort with deterministic tie-breakers (fixes BUG 3)
+/**
+ * ✅ Stable sort with deterministic tie-breakers (fixes BUG 3)
+ */
 export function sortTasks(tasks: ReadonlyArray<DerivedTask>): DerivedTask[] {
   return [...tasks].sort((a, b) => {
     const aROI = a.roi ?? -Infinity;
@@ -29,12 +33,15 @@ export function sortTasks(tasks: ReadonlyArray<DerivedTask>): DerivedTask[] {
     if (b.priorityWeight !== a.priorityWeight)
       return b.priorityWeight - a.priorityWeight;
 
-    // tie-breaker by title (alphabetically)
+    // Tie-breaker by title (alphabetically)
     return a.title.localeCompare(b.title);
   });
 }
 
-// ✅ Compute dashboard metrics
+/**
+ * ✅ Compute dashboard metrics
+ * Handles all totals and derived performance values safely.
+ */
 export function computeMetrics(tasks: ReadonlyArray<Task>): Metrics {
   const totalRevenue = computeTotalRevenue(tasks);
   const totalTime = computeTotalTimeTaken(tasks);
@@ -45,7 +52,7 @@ export function computeMetrics(tasks: ReadonlyArray<Task>): Metrics {
 
   return {
     totalRevenue,
-    totalTime,
+    totalTime, // ✅ 'totalTime' now properly typed in Metrics
     timeEfficiency,
     revenuePerHour,
     avgROI,

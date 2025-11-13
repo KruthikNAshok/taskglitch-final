@@ -6,7 +6,7 @@
     "module": "ESNext",
     "skipLibCheck": true,
     "jsx": "react-jsx",
-    "moduleResolution": "bundler",
+    "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
@@ -14,11 +14,11 @@
     "forceConsistentCasingInFileNames": true,
     "strict": true,
     "baseUrl": ".",
+    "types": ["node"],            // ✅ added — enables 'path', 'url', etc.
     "paths": {
       "@/*": ["src/*"]
     }
   },
-  "include": ["src"],
+  "include": ["src", "vite.config.ts"],   // ✅ include vite config too
   "references": [{ "path": "./tsconfig.node.json" }]
 }
-
