@@ -51,11 +51,14 @@ export function computeMetrics(tasks: ReadonlyArray<Task>): Metrics {
   const grade = computePerformanceGrade(avgROI);
 
   return {
-    totalRevenue,
-    totalTime, // ✅ 'totalTime' now properly typed in Metrics
-    timeEfficiencyPct,
-    revenuePerHour,
-    avgROI,
-    performanceGrade: grade,
-  };
+
+  totalRevenue,
+  totalTime,
+  totalTimeTaken: totalTime,
+  timeEfficiencyPct,
+  revenuePerHour,
+  averageROI: avgROI,  // ✅ match the Metrics interface
+  performanceGrade: grade,
+};
+
 }
